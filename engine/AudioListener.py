@@ -1,7 +1,7 @@
 from daAudio.engine.openal.audio import SoundListener 
 
 
-class Listener(SoundListener):
+class AudioListener(SoundListener):
 
     def __init__(self):
-        super(Listener, self).__init__()
+        super(AudioListener, self).__init__()

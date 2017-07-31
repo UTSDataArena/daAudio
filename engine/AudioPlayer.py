@@ -3,10 +3,10 @@ from collections import Iterable
 from daAudio.engine.openal.audio import SoundSink
 
 
-class Player(object):
+class AudioPlayer(object):
 
     def __init__(self, device=None, listener=None):
-        super(Player, self).__init__()
+        super(AudioPlayer, self).__init__()
 
         self.sink = SoundSink(device) 
         self.sink.activate()
@@ -31,4 +31,4 @@ class Player(object):
 
     def __extract_sources(self, emitters):
         return [emitter.source for emitter in emitters] if isinstance(emitters, Iterable) else emitters.source
-        
+
