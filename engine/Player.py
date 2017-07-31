@@ -3,10 +3,11 @@ from daAudio.engine.openal.audio import SoundSink
 
 class Player(object):
 
-    def __init__(self, device=None, listener=None)
+    def __init__(self, device=None, listener=None):
         super(Player, self).__init__()
 
         self.sink = SoundSink(device) 
+        self.sink.activate()
 
         if listener:
             self.sink.set_listener(listener)
@@ -22,6 +23,9 @@ class Player(object):
 
     def rewind(self, emitters):
         self.sink.rewind(self.__extract_sources(emitters))
+
+    def update(self):
+        self.sink.update()
 
     def __extract_sources(self, emitters):
         return [emitter.source for emitter in emitters]
