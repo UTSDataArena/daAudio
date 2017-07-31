@@ -515,7 +515,7 @@ class SoundSink(object):
             for source in sources:
                 sid = self._create_source_id(source)
                 sids.append(sid)
-            al.alSourcePlayv(_to_ctypes(sids, al.ALuint), len(sids))
+            al.alSourcePlayv(len(sids), _to_ctypes(sids, al.ALuint))
         else:
             sid = self._create_source_id(sources)
             al.alSourcePlay(sid)
@@ -526,7 +526,7 @@ class SoundSink(object):
         if isinstance(sources, Iterable):
             sids = [self._sources[source] for source in sources
                     if source in self._sources]
-            al.alSourceStopv(_to_ctypes(sids, al.ALuint), len(sids))
+            al.alSourceStopv(len(sids), _to_ctypes(sids, al.ALuint))
         elif sources in self._sources:
             al.alSourceStop(self._sources[sources])
         _continue_or_raise()
@@ -537,7 +537,7 @@ class SoundSink(object):
         if isinstance(sources, Iterable):
             sids = [self._sources[source] for source in sources
                     if source in self._sources]
-            al.alSourcePausev(_to_ctypes(sids, al.ALuint), len(sids))
+            al.alSourcePausev(len(sids), _to_ctypes(sids, al.ALuint))
         elif sources in self._sources:
             al.alSourcePause(self._sources[sources])
         _continue_or_raise()
@@ -547,7 +547,7 @@ class SoundSink(object):
         if isinstance(sources, Iterable):
             sids = [self._sources[source] for source in sources
                     if source in self._sources]
-            al.alSourceRewindv(_to_ctypes(sids, al.ALuint), len(sids))
+            al.alSourceRewindv(len(sids), _to_ctypes(sids, al.ALuint))
         elif sources in self._sources:
             al.alSourceRewind(self._sources[sources])
         _continue_or_raise()
