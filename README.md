@@ -10,6 +10,6 @@ This library includes support for the following features and functionality:
 
 ## References
 
-For more information about the PyAL library which is included in this module, please see the project's website:
+For more information about the PyAL library included in this module, please see the project's website:
 
  - https://bitbucket.org/marcusva/py-al
