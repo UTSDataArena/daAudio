@@ -34,7 +34,7 @@ def _findlib(libnames, path=None):
             if os.path.exists(dllfile):
                 results.append(dllfile)
     for libname in searchfor:
-        dllfile = find_library(libname)
+        dllfile = os.environ["OPENAL_LIBRARY"] if "OPENAL_LIBRARY" in os.environ else find_library(libname)
         if dllfile:
             results.append(dllfile)
     return results
